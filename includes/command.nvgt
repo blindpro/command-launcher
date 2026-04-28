@@ -10,6 +10,11 @@ command(string name, string type)
 this.name = name;
 this.type = type;
 }
+command()
+{
+this.name = "none";
+this.type = "none";
+}
 void exsacute()
 {
 if(type == "web")
@@ -18,8 +23,38 @@ urlopen(url);
 }
 else if(type == "file")
 {
-run(path,args);
+run(path,args,false,false);
 }
 }
-
+string to_string()
+{
+string output;
+output+="command:";
+output+="type:";
+if(type == "web")
+{
+output+="url";
+}
+else if(type == "file")
+{
+output+="path";
+}
+return output;
+}
+}
+command to_command(string input)
+{
+string[] parts = input.split(":");
+string name = parts[0];
+string type = parts[1];
+command c(name,type);
+if(type == "web")
+{
+c.url = parts[2];
+}
+else if(type == "file")
+{
+c.path = parts[2];
+}
+return c;
 }

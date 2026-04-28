@@ -1,3 +1,4 @@
+#include"includes/command.nvgt"
 #include"includes/stuff.nvgt"
 #include"includes/window_gui.nvgt"
 window_gui gui;

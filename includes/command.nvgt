@@ -1,0 +1,25 @@
+class command
+{
+string name;
+string type;
+string path;
+string args;
+string url;
+command(string name, string type)
+{
+this.name = name;
+this.type = type;
+}
+void exsacute()
+{
+if(type == "web")
+{
+urlopen(url);
+}
+else if(type == "file")
+{
+run(path,args);
+}
+}
+
+}

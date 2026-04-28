@@ -4,8 +4,12 @@ window_gui gui;
 void main()
 {
 gui.setup_window("command launcher");
+gui.create_list("commands");
+gui.create_button("add");
+gui.add_exit_button("exit");
 while(true)
 {
 wait(5);
+gui.run();
 }
 }

@@ -1,0 +1,11 @@
+#include"includes/stuff.nvgt"
+#include"includes/window_gui.nvgt"
+window_gui gui;
+void main()
+{
+gui.setup_window("command launcher");
+while(true)
+{
+wait(5);
+}
+}

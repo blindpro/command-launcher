@@ -1,3 +1,4 @@
+command[] commands;
 class command
 {
 string name;
@@ -57,4 +58,29 @@ else if(type == "file")
 c.path = parts[2];
 }
 return c;
+}
+void save_commands()
+{
+file f;
+f.open("commands.dat","r");
+for(int i = 0; i<commands.length(); i++)
+{
+f.write(commands[i].to_string());
+f.write("\r\n");
+}
+f.close();
+}
+bool get_commands()
+{
+if(!file_exists("commands.dat"))
+{
+return false;
+}
+string data = file_get_contents("commands.dat");
+string[] lines = data.split("\r\n");
+for(int i = 0; i<lines.length(); i++)
+{
+commands.insert_last(to_command(lines[i]));
+}
+return true;
 }

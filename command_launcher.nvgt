@@ -1,3 +1,4 @@
+#include"includes/functions.nvgt"
 #include"includes/command.nvgt"
 #include"includes/stuff.nvgt"
 #include"includes/window_gui.nvgt"
@@ -5,9 +6,8 @@ window_gui gui;
 void main()
 {
 gui.setup_window("command launcher");
-gui.create_list("commands");
-gui.create_button("add");
-gui.add_exit_button("exit");
+setup();
+gui.load_screen("home");
 while(true)
 {
 wait(5);

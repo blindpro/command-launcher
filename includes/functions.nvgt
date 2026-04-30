@@ -1,0 +1,15 @@
+void setup()
+{
+gui.create_list("commands");
+gui.add_exit_button("exit");
+gui.create_screen("home");
+gui.create_input_box("name of command");
+gui.create_list("command type");
+gui.add_list_item("command type","file");
+gui.add_list_item("command type","web");
+gui.create_input_box("file path, for file commands.");
+gui.create_input_box("URL, for web commands");
+gui.create_button("done");
+gui.create_button("cansel",null,false,true);
+gui.create_screen("add");
+}

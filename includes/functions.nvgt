@@ -1,6 +1,6 @@
 void setup()
 {
-gui.create_list("commands");
+gui.create_list("command list");
 gui.add_exit_button("exit");
 gui.create_screen("home");
 gui.create_input_box("name of command");
@@ -12,4 +12,11 @@ gui.create_input_box("URL, for web commands");
 gui.create_button("done");
 gui.create_button("cansel",null,false,true);
 gui.create_screen("add");
+}
+void create_list()
+{
+for(int i = 0; i<commands.length(); i++)
+{
+gui.add_list_item("command list",commands[i].name);
+}
 }

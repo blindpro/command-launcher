@@ -12,6 +12,5 @@ while(true)
 {
 wait(5);
 gui.run();
-
 }
 }

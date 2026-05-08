@@ -12,7 +12,7 @@ gui.add_list_item("command type","web");
 gui.create_input_box("file path, for file commands.");
 gui.create_input_box("URL, for web commands");
 gui.create_button("done",add_command);
-gui.create_button("cansel",null,false,true);
+gui.create_button("cansel",load_home,false,true);
 gui.create_screen("add");
 }
 void create_list()
@@ -32,7 +32,6 @@ if(pos>=0)
 commands[pos].exsacute();
 }
 }
-
 }
 void add_command()
 {
@@ -48,4 +47,10 @@ create_list();
 void load_add()
 {
 gui.load_screen("add");
+speak("entering add command screen");
+}
+void load_home()
+{
+gui.load_screen("home");
+speak("going back to home screen");
 }

@@ -32,7 +32,7 @@ void add_command()
 command c;
 int pos = gui.get_list_pazition("command type");
 c.name = gui.get_text("name of command");
-c.type = gui.get_list_item("command list",pos);
+c.type = gui.get_list_item("command type",pos);
 c.path = gui.get_text("file path, for file commands.");
 c.url = gui.get_text("URL, for web commands");
 commands.insert_last(c);
@@ -55,5 +55,6 @@ int pos = gui.get_list_pazition("commands");
 if(pos>=0)
 {
 commands[pos].exsacute();
+speak("exsicuted");
 }
 }

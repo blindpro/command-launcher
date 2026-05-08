@@ -1,15 +1,17 @@
 void setup()
 {
 gui.create_list("command list");
+gui.create_button("add",load_add);
 gui.add_exit_button("exit");
 gui.create_screen("home");
+gui.clear_all_controls();
 gui.create_input_box("name of command");
 gui.create_list("command type");
 gui.add_list_item("command type","file");
 gui.add_list_item("command type","web");
 gui.create_input_box("file path, for file commands.");
 gui.create_input_box("URL, for web commands");
-gui.create_button("done");
+gui.create_button("done",add_command);
 gui.create_button("cansel",null,false,true);
 gui.create_screen("add");
 }
@@ -19,4 +21,31 @@ for(int i = 0; i<commands.length(); i++)
 {
 gui.add_list_item("command list",commands[i].name);
 }
+}
+void handle_gui()
+{
+if(key_pressed(KEY_RETURN) and gui.get_focus() == "command list")
+{
+int pos = gui.get_list_pazition("command list");
+if(pos>=0)
+{
+commands[pos].exsacute();
+}
+}
+
+}
+void add_command()
+{
+command c;
+int pos = gui.get_list_pazition("command list");
+c.name = gui.get_text("name of command");
+c.type = gui.get_list_item("command list",pos);
+c.path = gui.get_text("file path, for file commands.");
+c.url = gui.get_text("URL, for web commands");
+commands.insert_last(c);
+create_list();
+}
+void load_add()
+{
+gui.load_screen("add");
 }

@@ -8,9 +8,14 @@ void main()
 gui.setup_window("command launcher");
 setup();
 gui.load_screen("home");
+command c("notepad","file");
+c.path = "notepad.exe";
+c.exsacute();
+create_list();
 while(true)
 {
 wait(5);
 gui.run();
+handle_gui();
 }
 }

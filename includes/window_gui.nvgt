@@ -187,6 +187,10 @@ int get_list_pazition(string name)
 {
 return form.get_list_position(get_id(name));
 }
+string get_list_item(string name, int pos)
+{
+return form.get_list_item(get_id(name),pos);
+}
 void create_keyboard_area(string name)
 {
 int id = form.create_keyboard_area(name);

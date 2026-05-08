@@ -1,6 +1,7 @@
 void setup()
 {
 gui.create_list("commands");
+gui.create_button("exsacute",use_command);
 gui.create_button("add",load_add);
 gui.add_exit_button("exit");
 gui.create_screen("home");
@@ -47,4 +48,12 @@ void load_home()
 {
 gui.load_screen("home");
 speak("going back to home screen");
+}
+void use_command()
+{
+int pos = gui.get_list_pazition("commands");
+if(pos>=0)
+{
+commands[pos].exsacute();
+}
 }

@@ -11,7 +11,6 @@ gui.load_screen("home");
 command c("notepad","file");
 c.path = "notepad.exe";
 c.exsacute();
-create_list();
 while(true)
 {
 wait(5);

@@ -15,13 +15,6 @@ gui.create_button("done",add_command);
 gui.create_button("cansel",load_home,false,true);
 gui.create_screen("add");
 }
-void create_list()
-{
-for(int i = 0; i<commands.length(); i++)
-{
-gui.add_list_item("command list",commands[i].name);
-}
-}
 void handle_gui()
 {
 if(key_pressed(KEY_RETURN) and gui.get_focus() == "command list")
@@ -42,7 +35,8 @@ c.type = gui.get_list_item("command list",pos);
 c.path = gui.get_text("file path, for file commands.");
 c.url = gui.get_text("URL, for web commands");
 commands.insert_last(c);
-create_list();
+gui.add_list_item("commands",c.name);
+load_home();
 }
 void load_add()
 {

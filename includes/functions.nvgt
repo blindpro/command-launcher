@@ -1,6 +1,6 @@
 void setup()
 {
-gui.create_list("command list");
+gui.create_list("commands");
 gui.create_button("add",load_add);
 gui.add_exit_button("exit");
 gui.create_screen("home");
@@ -17,9 +17,9 @@ gui.create_screen("add");
 }
 void handle_gui()
 {
-if(key_pressed(KEY_RETURN) and gui.get_focus() == "command list")
+if(key_pressed(KEY_RETURN) and gui.get_focus() == "commands")
 {
-int pos = gui.get_list_pazition("command list");
+int pos = gui.get_list_pazition("commands");
 if(pos>=0)
 {
 commands[pos].exsacute();
@@ -29,14 +29,14 @@ commands[pos].exsacute();
 void add_command()
 {
 command c;
-int pos = gui.get_list_pazition("command list");
+int pos = gui.get_list_pazition("command type");
 c.name = gui.get_text("name of command");
 c.type = gui.get_list_item("command list",pos);
 c.path = gui.get_text("file path, for file commands.");
 c.url = gui.get_text("URL, for web commands");
 commands.insert_last(c);
-gui.add_list_item("commands",c.name);
 load_home();
+gui.add_list_item("commands",c.name);
 }
 void load_add()
 {

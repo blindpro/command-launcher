@@ -183,6 +183,27 @@ controls.get(name,g);
 g.items = {};
 controls.set(name,g);
 }
+void delete_item(string name, string item)
+{
+gui_control g;
+controls.get(name,g);
+int index = g.items.find(item);
+if(index == -1)
+{
+return;
+}
+form.delete_list_item(get_id(name),index);
+g.items.remove_at(index);
+controls.set(name,g);
+}
+void delete_item(string name, int index)
+{
+gui_control g;
+controls.get(name,g);
+form.delete_list_item(get_id(name),index);
+g.items.remove_at(index);
+controls.set(name,g);
+}
 int get_list_pazition(string name)
 {
 return form.get_list_position(get_id(name));

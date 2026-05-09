@@ -2,6 +2,7 @@ void setup()
 {
 gui.create_list("commands");
 gui.create_button("exsacute",use_command);
+gui.create_button("delete",delete_command);
 gui.create_button("add",load_add);
 gui.add_exit_button("exit");
 gui.create_screen("home");
@@ -57,4 +58,10 @@ if(pos>=0)
 commands[pos].exsacute();
 speak("exsicuted");
 }
+}
+void delete_command()
+{
+int pos = gui.get_list_pazition("commands");
+commands.remove_at(pos);
+gui.delete_item("commands",pos);
 }

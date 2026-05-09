@@ -1,6 +1,11 @@
 void setup()
 {
+get_commands();
 gui.create_list("commands");
+for(int i = 0; i<commands.length(); i++)
+{
+gui.add_list_item("commands",commands[i].name);
+}
 gui.create_button("exsacute",use_command);
 gui.create_button("delete",delete_command);
 gui.create_button("add",load_add);
@@ -39,6 +44,7 @@ c.url = gui.get_text("URL, for web commands");
 commands.insert_last(c);
 load_home();
 gui.add_list_item("commands",c.name);
+save_commands();
 }
 void load_add()
 {

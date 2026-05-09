@@ -30,15 +30,15 @@ run(path,args,false,false);
 string to_string()
 {
 string output;
-output+="command:";
-output+="type:";
+output+=name+":";
+output+=type+":";
 if(type == "web")
 {
-output+="url";
+output+=url+":";
 }
 else if(type == "file")
 {
-output+="path";
+output+=path+":";
 }
 return output;
 }
@@ -62,7 +62,7 @@ return c;
 void save_commands()
 {
 file f;
-f.open("commands.dat","r");
+f.open("commands.dat","w");
 for(int i = 0; i<commands.length(); i++)
 {
 f.write(commands[i].to_string());

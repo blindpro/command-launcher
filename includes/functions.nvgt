@@ -70,4 +70,6 @@ void delete_command()
 int pos = gui.get_list_pazition("commands");
 commands.remove_at(pos);
 gui.delete_item("commands",pos);
+file_put_contents("commands.dat","",false);
+save_commands();
 }

@@ -1,3 +1,4 @@
+#include"includes/cmd.nvgt"
 #include"includes/functions.nvgt"
 #include"includes/command.nvgt"
 #include"includes/stuff.nvgt"

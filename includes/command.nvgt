@@ -6,6 +6,7 @@ string type;
 string path;
 string args;
 string url;
+string commandline;
 command(string name, string type)
 {
 this.name = name;
@@ -26,6 +27,11 @@ else if(type == "file")
 {
 run(path,args,false,false);
 }
+else if(type == "commandline")
+{
+cmd shell;
+shell.send(commandline);
+}
 }
 string to_string()
 {
@@ -39,6 +45,10 @@ output+=url+":";
 else if(type == "file")
 {
 output+=path+":";
+}
+else if(type == "commandline")
+{
+output+=commandline+":";
 }
 return output;
 }
@@ -56,6 +66,10 @@ c.url = parts[2];
 else if(type == "file")
 {
 c.path = parts[2];
+}
+else if(type == "commandline")
+{
+c.commandline = parts[2];
 }
 return c;
 }
